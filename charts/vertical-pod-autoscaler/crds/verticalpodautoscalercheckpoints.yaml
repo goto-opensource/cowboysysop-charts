@@ -3,15 +3,8 @@ kind: CustomResourceDefinition
 metadata:
   name: verticalpodautoscalercheckpoints.autoscaling.k8s.io
   labels:
-    {{- include "vertical-pod-autoscaler.labels" . | nindent 4 }}
-    {{- if .Values.commonLabels }}
-    {{- include "common.tplvalues.render" ( dict "value" .Values.commonLabels "context" $ ) | nindent 4 }}
-    {{- end }}
   annotations:
     api-approved.kubernetes.io: https://github.com/kubernetes/kubernetes/pull/63797
-    {{- if .Values.commonAnnotations }}
-    {{- include "common.tplvalues.render" ( dict "value" .Values.commonAnnotations "context" $ ) | nindent 4 }}
-    {{- end }}
 spec:
   group: autoscaling.k8s.io
   names:
